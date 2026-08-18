@@ -1,0 +1,363 @@
+/* =========================================================
+   style.css｜V6固定IP LP ページ固有スタイル
+
+   色・角丸・影は必ずトークン参照（直値禁止）
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:clip;
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--base-1);
+  line-height:var(--lh-body);
+  font-size:16px;
+  font-weight:500; /* 本番準拠：本文はweight500 */
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--main)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+
+
+/* ---- 外部向けの但し書き ---- */
+.notice{background:#fff6d6;border-bottom:2px solid #d9a400;color:#5c4300}
+.notice p{margin:0;padding:14px 0;font-size:14px;line-height:1.8}
+.notice strong{color:#7a5a00}
+@media (max-width:767px){.notice p{font-size:13px;padding:12px 0}}
+
+/* ---- 共通レイアウト ---- */
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+.sec{padding:104px 0 112px}
+.sec--blue{background:var(--base-2)}
+.sec--gray{background:var(--gray-bg)} /* 【原則不使用】本番のセクション背景は白⇄薄青⇄濃青。グレーは小部品のみ */
+.sec__eyebrow{
+  display:table;margin:0 auto 16px;position:relative;
+  background:var(--main);color:#fff;
+  font-size:17px;font-weight:600;letter-spacing:.08em;
+  padding:10px 24px;border-radius:5rem;
+  text-align:center;line-height:1.5;
+}
+.sec__lead{margin:0 auto 52px;font-size:17px;max-width:800px;text-align:center;text-wrap:pretty}
+
+/* ---- ヘッダー（本番：白ナビ・お問い合わせのみ青ボタン化） ---- */
+.head{background:#fff;border-bottom:1px solid var(--line)}
+.head__in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.head__logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.head__logo img{height:44px;width:auto}
+.head__logo .head__logo-sub{color:var(--text);font-size:12.5px;line-height:1.5;font-weight:700}
+.head__cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.head__tel{display:flex;flex-direction:column;align-items:flex-end;text-decoration:none;color:var(--text)}
+.head__tel .head__tel-num{font-family:var(--font-num);font-size:22px;font-weight:600;line-height:1.2;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.head__tel .head__tel-sub{font-size:11px;color:var(--note-gray)}
+
+/* ---- パンくず（スリムBBへの相互リンク） ---- */
+.crumb{background:#fff;border-bottom:1px solid var(--line)}
+.crumb__list{display:flex;gap:6px;flex-wrap:wrap;margin:0;padding:9px 0;list-style:none;font-size:12.5px;color:var(--note-gray)}
+.crumb__list li:not(:last-child)::after{content:"›";margin-left:6px;color:var(--heading-rule)}
+.crumb__list a{color:var(--note-gray);text-decoration:none;display:inline-block;padding:2px 0}
+.crumb__list a:hover{color:var(--main);text-decoration:underline}
+
+/* ---- S1 FV（薄青フラット・高情報密度） ---- */
+.fv{background:var(--base-2);padding:76px 0 84px}
+.fv__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.fv__eyebrow{
+  display:inline-block;background:var(--main);color:#fff;
+  font-size:13.5px;font-weight:700;padding:6px 18px;border-radius:var(--radius-pill);margin-bottom:18px;
+}
+.fv__title{
+  font-size:clamp(34px,4.6vw,58px);line-height:1.35;
+  color:var(--text);font-weight:900;margin:0 0 14px;text-wrap:balance;
+}
+.fv__title .u{
+  background:linear-gradient(transparent 70%,var(--accent) 70%); /* 黄マーカー＝ブランドアクセント */
+  padding-bottom:2px;
+}
+.fv__lead{margin:0 0 18px;font-size:16.5px;text-wrap:pretty}
+.fv__badges{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
+.fv__price-cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.fv__price-card{
+  background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-card);
+  padding:14px 22px 12px;min-width:250px;flex:1;
+}
+.fv__price-card .fv__plan-name{font-size:16.5px;font-weight:700;color:var(--main);margin:0 0 4px}
+.fv__price-card .sl-price .sl-price__num{font-size:54px}
+.fv__notes{margin-bottom:22px}
+.fv__btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---- 図のプレースホルダ ---- */
+.fig{
+  border:2px dashed var(--main);border-radius:var(--radius-card);
+  background:#fff;min-height:240px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:24px;gap:6px;color:var(--main);
+}
+.fig__no{font-weight:700;font-size:15px}
+.fig__desc{font-size:13px;color:var(--note-gray);line-height:1.7}
+
+/* ---- S2 課題カード（2列×3段：3枚横並びの繰り返しを回避） ---- */
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 26px}
+.case{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-soft);padding:30px 32px;
+}
+.case__icon{
+  flex:0 0 56px;width:56px;height:56px;border-radius:50%;
+  background:var(--base-2);color:var(--main);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;
+}
+.case__title{font-size:16.5px;font-weight:700;color:var(--text);margin:0 0 4px;line-height:1.55}
+.case__body{margin:0;font-size:13.5px;line-height:1.75;color:#333}
+
+/* ---- S3/S4 Before→After ---- */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ba__text .sec__eyebrow{margin-left:0;margin-right:auto}
+.ba__text .sl-h2{text-align:left}
+.ba__text .sl-h2::before{left:0}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.point{background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-card);padding:38px 32px;text-align:left}
+.point__no{
+  font-family:var(--font-num);font-size:40px;font-weight:600;color:var(--main);
+  line-height:1;margin-bottom:12px;
+}
+.point__title{font-size:17.5px;font-weight:700;color:var(--text);margin:0 0 8px;line-height:1.55}
+.point__body{margin:0;font-size:14px}
+.point--em{background:var(--main);color:#fff;position:relative}
+.point--em .point__no,.point--em .point__title{color:#fff}
+.point--em .point__body{color:#fff;opacity:.95}
+.point__tag{
+  position:absolute;top:-18px;left:24px;
+  background:var(--accent);color:var(--text);
+  font-size:17px;font-weight:600;letter-spacing:.08em;line-height:1.5;
+  border-radius:5rem;padding:10px 24px;
+}
+
+/* ---- S5 料金プラン（主役=1個プラン強調） ---- */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(280px,460px));gap:32px;justify-content:center;align-items:stretch}
+.plan{
+  position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-card);box-shadow:var(--shadow-card);
+  padding:46px 40px 36px;text-align:center;display:flex;flex-direction:column;
+}
+.plan--main{border:3px solid var(--main)}
+.plan__name{font-size:28px;font-weight:700;color:var(--text);margin:0 0 4px}
+.plan__ip{display:inline-block;background:var(--base-2);color:var(--main);font-size:14px;font-weight:700;
+  border-radius:var(--radius-pill);padding:4px 16px;margin:6px auto 16px}
+.plan .sl-price{justify-content:center}
+.plan__for{font-size:13.5px;color:#333;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);text-align:left;line-height:1.75}
+.plan__for b{color:var(--main)}
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:44px}
+.term{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-card);padding:36px 20px 30px;text-align:center;
+}
+.term__icon{
+  width:64px;height:64px;border-radius:50%;background:var(--base-2);color:var(--main);
+  margin:0 auto 16px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;
+}
+.term__title{font-size:20px;font-weight:700;color:var(--text);margin:0 0 8px;line-height:1.5}
+.term__title b{color:var(--main)}
+.term__body{font-size:13.5px;color:#333;margin:0;line-height:1.75;text-align:left}
+
+/* ---- S6 ご利用条件 ---- */
+.cond{margin-inline:auto}
+.cond table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:16px}
+.cond th,.cond td{border:1px solid var(--line);padding:26px 34px;text-align:left;vertical-align:top}
+.cond th{background:var(--gray-bg);width:22%;font-weight:700;color:var(--text)}
+
+/* ---- S7 お申し込みの流れ ---- */
+.steps{display:flex;flex-direction:column;max-width:880px;margin-inline:auto;position:relative}
+.steps::before{ /* 番号丸をつなぐ縦線 */
+  content:"";position:absolute;left:33px;top:36px;bottom:44px;width:3px;
+  background:#cfe3f7;border-radius:2px;
+}
+.step{display:flex;gap:34px;padding:34px 0;position:relative;align-items:flex-start}
+.step__no{
+  flex:0 0 68px;width:68px;height:68px;border-radius:50%;background:var(--main);color:#fff;
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:1;
+  font-family:var(--font-num);font-weight:600;font-size:28px;
+  box-shadow:0 0 0 9px var(--base-2);
+}
+.step__label{
+  display:block;color:var(--main);font-family:var(--font-num);
+  font-size:15px;font-weight:600;letter-spacing:.12em;margin:0 0 4px;
+}
+.step__title{font-size:26px;font-weight:700;color:var(--text);margin:0 0 10px;line-height:1.5}
+.step__body{margin:0;font-size:16px;line-height:1.9;max-width:640px}
+
+/* ---- S8 FAQ（スリム光クロス準拠：グレー太帯・大Q・右＋丸・余白大） ---- */
+.sec--faq{padding:104px 0 112px}
+.sec--faq .sl-h2{margin-bottom:48px}
+.sec .sl-h2{margin-bottom:40px}
+.faq details{background:transparent;margin-bottom:15px}
+.faq summary{
+  cursor:pointer;list-style:none;
+  background:var(--gray-bg);border-radius:var(--radius-card);
+  padding:32px 76px 32px 104px;
+  font-weight:700;color:var(--text);position:relative;font-size:19px;line-height:1.65;min-height:44px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{
+  content:"Q";position:absolute;left:26px;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;background:var(--main);color:#fff;
+  font-family:var(--font-num);font-size:24px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+.faq summary::after{
+  content:"＋";position:absolute;right:26px;top:50%;
+  width:30px;height:30px;border-radius:50%;background:var(--main);color:#fff;
+  font-size:18px;font-weight:700;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  transform:translateY(-50%);transition:transform .3s ease;
+}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq .faq__a{margin:0;padding:24px 30px 26px 104px;font-size:15.5px;position:relative;line-height:1.9}
+.faq .faq__a::before{
+  content:"A";position:absolute;left:38px;top:22px;
+  width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+  font-family:var(--font-num);font-size:16px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ---- S9 他プラン案内（目立たせない） ---- */
+.other{
+  background:var(--gray-bg);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:28px 34px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.other p{margin:0;font-size:17px}
+
+/* ---- CTA帯の電話ブロック（3段組み） ---- */
+.sl-cta-band .sl-tel--on-blue{gap:6px}
+.sl-tel__head{
+  display:block;font-size:20px;font-weight:700;color:#fff;letter-spacing:.04em;line-height:1.5;
+}
+.sl-tel--on-blue a{font-size:44px}
+.sl-tel--on-blue .sl-tel__icon{width:38px;height:38px} /* 電話番号のサイズに合わせる */
+.sl-tel--on-blue .sl-tel__sub{font-size:17px}
+
+/* ---- お問い合わせセクション（本番CTA帯準拠：#0069c2＋3パネル） ---- */
+.contact{background:var(--cta-band-bg);color:#fff;padding:96px 0}
+.contact__grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
+.contact__title{font-size:44px;font-weight:700;color:#fff;margin:0 0 14px;line-height:1.3}
+.contact__lead{margin:0 0 30px;font-size:17px;opacity:.95;line-height:1.9}
+.contact__tel{margin:0;display:flex;flex-direction:column;gap:4px}
+.contact__tel a{
+  color:#fff;text-decoration:none;font-family:var(--font-num);
+  font-size:46px;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1.2;
+  display:inline-flex;align-items:center;gap:12px;
+}
+.contact__tel .sl-tel__icon{width:30px;height:30px}
+.contact__hours{font-size:15px;opacity:.95}
+.contact__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.panel{
+  border-radius:var(--radius-card);padding:38px 12px 30px;
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  color:#fff;text-decoration:none;font-weight:700;font-size:17.5px;
+  transition:opacity .3s ease;touch-action:manipulation;
+}
+.panel:hover{opacity:.82}
+.panel:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.panel--dark{background:var(--panel-dark)}
+.panel--orange{background:var(--panel-orange)}
+.panel--blue{background:var(--panel-blue)}
+.panel__icon{
+  width:72px;height:72px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.panel__label{display:inline-flex;align-items:center;gap:8px}
+.panel__arrow{font-weight:700}
+
+/* ---- フッター（本番構成準拠：ナビ列＋手続き＋ロゴ） ---- */
+.foot{background:var(--footer-bg);color:#fff;padding:64px 0 22px;font-size:13.5px}
+.foot__grid{display:grid;grid-template-columns:1fr 1.1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot__col{margin:0;padding:0}
+.foot__col h3{font-size:14.5px;margin:0 0 12px;font-weight:700}
+.foot__col h3 a{color:#fff;text-decoration:none}
+.foot__col ul,ul.foot__col{list-style:none;margin:0;padding:0}
+.foot__col li a{
+  color:#c9c9c9;text-decoration:none;display:inline-block;padding:7px 4px;line-height:1.5;
+}
+.foot__col li a:hover{color:#fff;text-decoration:underline}
+.foot__col--single li a{color:#fff;font-weight:700}
+.foot__col--logo img{margin-top:18px}
+.foot__copy{margin:0;color:#999;border-top:1px solid #444;padding-top:16px}
+.foot__copyright{margin:10px 0 0;color:rgba(255,255,255,.6);font-size:12px}
+
+/* ---- レスポンシブ（本番ブレークポイント767px準拠） ---- */
+@media (max-width:900px){
+  .contact__grid{grid-template-columns:1fr;gap:36px}
+  .contact__title{font-size:34px}
+  .foot__grid{grid-template-columns:repeat(2,1fr);gap:28px}
+  .fv__grid{grid-template-columns:1fr;gap:30px}
+  .ba{grid-template-columns:1fr;gap:24px}
+  .points{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(2)::after{display:none}
+  .plans{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  body{font-size:16px;line-height:1.6}
+  .sec{padding:60px 0 64px}
+  .sl-h3{font-size:18px}
+  .sl-h3::before{width:6px}
+  .cases{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step:not(:last-child)::after{
+    right:auto;left:50%;top:auto;bottom:-12px;
+    transform:translateX(-50%) rotate(135deg);
+  }
+  .sl-btn{min-width:0;width:100%;font-size:16px;padding:14px 40px 14px 20px}
+  .fv__btns{flex-direction:column;align-items:stretch}
+  .fv__btns .sl-tel{width:100%}
+  .head__cta .sl-btn--sm{display:none}
+  .head__tel .head__tel-sub{display:none}
+  .head__tel .head__tel-num{font-size:17px;white-space:nowrap}
+  .head__logo img{height:32px}
+  .head__logo .head__logo-sub{font-size:10.5px}
+  .fv__lead br{display:none}
+  .plans-common{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;column-gap:22px;row-gap:6px}
+  .steps::before{display:none}
+  .sl-price .sl-price__num{font-size:44px}
+  .fv__price-card .sl-price .sl-price__num{font-size:38px}
+  .sl-cta-band .sl-cta-band__actions{flex-direction:column;align-items:stretch}
+  .sl-cta-band .sl-btn{width:100%}
+  .sec--faq{padding:60px 0 64px}
+  .sl-h2{font-size:30px !important;padding-bottom:18px}
+  .sec__eyebrow{font-size:15px;padding:8px 20px;margin-bottom:14px}
+  .point__tag{font-size:15px;padding:8px 20px;top:-16px;left:18px}
+  .sl-tel__head{font-size:16px}
+  .sl-tel--on-blue a{font-size:30px}
+  .sl-tel--on-blue .sl-tel__icon{width:26px;height:26px}
+  .sl-cta-band .sl-cta-band__title{font-size:30px}
+  .sl-price .sl-price__num{font-size:48px}
+  .fv__price-card .sl-price .sl-price__num{font-size:42px}
+  .plan__name{font-size:23px}
+  .sec__lead,.other p{font-size:15.5px}
+  .sl-tel .sl-tel__sub,.sl-tel--on-blue .sl-tel__sub{font-size:13.5px}
+  .terms{grid-template-columns:repeat(2,1fr);gap:14px}
+  .term{padding:24px 14px 20px}
+  .term__title{font-size:17px}
+  .steps::before{left:23px;top:30px;bottom:36px}
+  .step{gap:18px;padding:22px 0}
+  .step__no{flex:0 0 48px;width:48px;height:48px;font-size:20px;box-shadow:0 0 0 6px var(--base-2)}
+  .step__title{font-size:19px}
+  .step__body{font-size:14.5px}
+  .faq details{margin-bottom:10px}
+  .contact{padding:60px 0}
+  .contact__tel a{font-size:34px}
+  .contact__panels{grid-template-columns:1fr;gap:12px}
+  .panel{flex-direction:row;justify-content:flex-start;padding:16px 20px;gap:16px}
+  .panel__icon{width:52px;height:52px}
+  .foot__grid{grid-template-columns:1fr;gap:20px}
+  .faq summary{font-size:16px;padding:16px 46px 16px 62px;border-radius:6px}
+  .faq summary::before{width:36px;height:36px;font-size:17px;left:12px}
+  .faq summary::after{width:24px;height:24px;font-size:15px;right:12px}
+  .faq .faq__a{padding:16px 16px 18px 62px;font-size:14.5px}
+  .faq .faq__a::before{width:24px;height:24px;font-size:13px;left:18px;top:16px}
+}
