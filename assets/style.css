@@ -165,6 +165,46 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .term__title b{color:var(--main)}
 .term__body{font-size:13.5px;color:#333;margin:0;line-height:1.75;text-align:left}
 
+/* ---- S5 料金比較表（サービス×IP数のマトリクス） ---- */
+.pricetable{overflow-x:auto}
+.pricetable table{
+  width:100%;max-width:1000px;margin-inline:auto;border-collapse:separate;border-spacing:0;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;
+  box-shadow:var(--shadow-card);min-width:720px;
+}
+.pricetable__cap{caption-side:top;font-size:17px;color:#333;padding:0 0 24px;text-align:center}
+.pricetable th,.pricetable td{border-bottom:1px solid var(--line);padding:26px 24px;text-align:center}
+.pricetable thead th{background:var(--base-2);color:var(--text);font-size:17px;font-weight:700;padding:20px 24px}
+.pricetable thead th b{color:var(--main);font-size:20px}
+.pricetable__corner{background:var(--gray-bg) !important;font-size:15px !important;width:26%}
+.pricetable tbody th{
+  background:var(--gray-bg);font-size:20px;font-weight:700;color:var(--text);
+  text-align:left;position:relative;
+}
+.pricetable tbody tr:last-child th,.pricetable tbody tr:last-child td{border-bottom:0}
+.pricetable__badge{
+  display:inline-block;margin-left:10px;vertical-align:middle;
+  background:var(--price-red);color:#fff;font-size:13px;font-weight:700;
+  border-radius:5rem;padding:4px 14px;white-space:nowrap;
+}
+.pricetable__row--main td{background:#fff}
+.pricetable .sl-price{justify-content:center;margin:0}
+.pricetable .sl-price .sl-price__num{font-size:52px}
+.pricetable tbody tr:not(.pricetable__row--main) .sl-price .sl-price__num{font-size:44px}
+
+/* 表の下の選び方ガイド */
+.plan-help{
+  max-width:1000px;margin:30px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.plan-help__item{
+  margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:22px 26px;font-size:15px;line-height:1.85;
+}
+.plan-help__item b{color:var(--main)}
+
+/* S9の2リンク */
+.other__links{display:flex;gap:12px;flex-wrap:wrap}
+
 /* ---- S6 ご利用条件 ---- */
 .cond{margin-inline:auto}
 .cond table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:16px}
@@ -341,6 +381,35 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .sec__lead,.other p{font-size:15.5px}
   .sl-tel .sl-tel__sub,.sl-tel--on-blue .sl-tel__sub{font-size:13.5px}
   .terms{grid-template-columns:repeat(2,1fr);gap:14px}
+  /* SPは表を縦積みカードに（横スクロールは見落とされるため） */
+  .pricetable{overflow:visible}
+  .pricetable table{min-width:0;border:0;box-shadow:none;background:transparent;display:block}
+  .pricetable thead{display:none}
+  .pricetable tbody,.pricetable tbody tr{display:block}
+  .pricetable tbody tr{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+    box-shadow:var(--shadow-card);margin-bottom:16px;overflow:hidden;
+  }
+  .pricetable tbody tr.pricetable__row--main{border:3px solid var(--main)}
+  .pricetable tbody th{
+    display:block;width:auto;text-align:center;font-size:18px;
+    background:var(--base-2);padding:14px 16px;border-bottom:1px solid var(--line);
+  }
+  .pricetable tbody td{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);
+  }
+  .pricetable tbody tr td:last-child{border-bottom:0}
+  .pricetable tbody td::before{
+    content:attr(data-label);flex:0 0 auto;
+    font-size:13.5px;font-weight:700;color:var(--main);
+  }
+  .pricetable .sl-price{justify-content:flex-end;flex:1}
+  .pricetable .sl-price .sl-price__num{font-size:34px}
+  .pricetable tbody tr:not(.pricetable__row--main) .sl-price .sl-price__num{font-size:32px}
+  .pricetable__badge{display:inline-block;margin:0 0 0 8px;font-size:11px;vertical-align:middle}
+  .plan-help{grid-template-columns:1fr;gap:12px}
+  .plan-help__item{padding:16px 18px;font-size:14px}
   .term{padding:24px 14px 20px}
   .term__title{font-size:17px}
   .steps::before{left:23px;top:30px;bottom:36px}
