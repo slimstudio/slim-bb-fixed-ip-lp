@@ -61,37 +61,49 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .crumb__list a{color:var(--note-gray);text-decoration:none;display:inline-block;padding:2px 0}
 .crumb__list a:hover{color:var(--main);text-decoration:underline}
 
-/* ---- S1 FV（薄青フラット・高情報密度） ---- */
-.fv{background:var(--base-2);padding:76px 0 84px}
-.fv__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+/* ---- S1 FV（本番slim-bb準拠：薄青＋斜めストライプ装飾／全要素センタリング・図版なし） ---- */
+/* 本番 #bb_promo の作りをそのまま踏襲：バッジ → 大見出し → リード文。左右2カラムにしない */
+.fv{
+  position:relative;overflow:hidden;text-align:center;
+  background-color:var(--base-2);
+  background-image:url(img/deco_stripe.png);
+  background-size:20vw;background-position:right bottom -50px;background-repeat:no-repeat;
+  padding:100px 0 108px;
+}
+.fv::before{ /* 本番と同じく左上にも同じ装飾を反転配置 */
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url(img/deco_stripe.png);
+  background-size:20vw;background-position:left top -50px;background-repeat:no-repeat;
+}
+.fv__inner{position:relative;z-index:1}
 .fv__eyebrow{
-  display:inline-block;background:var(--main);color:#fff;
-  font-size:13.5px;font-weight:700;padding:6px 18px;border-radius:var(--radius-pill);margin-bottom:18px;
+  display:table;margin:0 auto 30px;
+  background:var(--main);color:#fff;
+  font-size:18px;font-weight:700;letter-spacing:.04em;line-height:1.6;
+  padding:8px 34px;border-radius:5rem;
 }
 .fv__title{
-  font-size:clamp(34px,4.6vw,58px);line-height:1.35;
-  color:var(--text);font-weight:900;margin:0 0 14px;text-wrap:balance;
+  font-size:clamp(34px,5vw,62px);line-height:1.4;letter-spacing:.04em;
+  color:var(--text);font-weight:900;margin:0 0 30px;text-wrap:balance;
 }
-.fv__title .u{
-  background:linear-gradient(transparent 70%,var(--accent) 70%); /* 黄マーカー＝ブランドアクセント */
-  padding-bottom:2px;
+.fv__title .u{ /* 黄マーカー＝ブランドアクセント */
+  /* line-height:1 で箱を文字の高さに合わせる。行間ぶんズレて文字の下に落ちるのを防ぐ */
+  display:inline-block;line-height:1;padding:0 .04em;
+  background:linear-gradient(transparent 62%,var(--accent) 62%);
 }
-.fv__lead{margin:0 0 18px;font-size:16.5px;text-wrap:pretty}
-.fv__badges{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px;padding:0;list-style:none}
-.fv__price-cards{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.fv__lead{margin:0 0 40px;font-size:17px;line-height:2;text-wrap:pretty}
+.fv__badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 0 46px;padding:0;list-style:none}
+.fv__badges .sl-badge{font-size:15.5px;padding:9px 22px} /* センタリング構成では小さく見えるので上げる */
+.fv__price-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:800px;margin:0 auto 6px}
 .fv__price-card{
   background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-card);
-  padding:14px 22px 12px;min-width:250px;flex:1;
+  padding:22px 28px 20px;flex:0 1 340px;text-align:center;
 }
-.fv__price-card .fv__plan-name{font-size:16.5px;font-weight:700;color:var(--main);margin:0 0 4px}
+.fv__price-card .fv__plan-name{font-size:16.5px;font-weight:700;color:var(--main);margin:0 0 6px}
 .fv__price-card .sl-price .sl-price__num{font-size:54px}
-.fv__notes{margin-bottom:22px}
-.fv__btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-
-/* ---- 図（Codex生成SVG） ---- */
-.fig-img{width:100%;height:auto;display:block}
-.fv .fig-img{max-width:none} /* FVは右カラム幅いっぱいに使う */
-.ba .fig-img{max-width:none}
+.fv__notes{max-width:860px;margin:0 auto 46px;text-align:center}
+.fv__notes li{padding-left:0;text-indent:0} /* センタリングのためぶら下げインデントを解除 */
+.fv__btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:center}
 
 /* ---- アイコン（円の中にSVGを載せる） ---- */
 .case__icon img,.term__icon img{width:100%;height:100%;display:block}
@@ -123,10 +135,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .case__body{margin:0;font-size:13.5px;line-height:1.75;color:#333}
 
 /* ---- S3/S4 Before→After ---- */
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ba__text .sec__eyebrow{margin-left:0;margin-right:auto}
-.ba__text .sl-h2{text-align:left}
-.ba__text .sl-h2::before{left:0}
 .points{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
 .point{background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-card);padding:38px 32px;text-align:left}
 .point__no{
@@ -344,8 +352,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .contact__grid{grid-template-columns:1fr;gap:36px}
   .contact__title{font-size:34px}
   .foot__grid{grid-template-columns:repeat(2,1fr);gap:28px}
-  .fv__grid{grid-template-columns:1fr;gap:30px}
-  .ba{grid-template-columns:1fr;gap:24px}
   .points{grid-template-columns:1fr}
   .steps{grid-template-columns:repeat(2,1fr)}
   .step:nth-child(2)::after{display:none}
@@ -369,8 +375,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .head__tel .head__tel-sub{display:none}
   .head__tel .head__tel-num{font-size:17px;white-space:nowrap}
   .head__logo img{height:32px}
-  .head__logo .head__logo-sub{font-size:10.5px}
+  .head__logo .head__logo-sub{display:none} /* SPは幅が足りず3行に折れて崩れるため非表示 */
+  .fv{padding:56px 0 64px;background-size:150px;background-position:right -30px bottom -30px}
+  .fv::before{background-size:150px;background-position:left -30px top -30px}
+  .fv__eyebrow{font-size:14px;padding:7px 20px;margin-bottom:18px;line-height:1.5}
+  .fv__title{margin-bottom:20px}
+  .fv__lead{font-size:15.5px;line-height:1.9;margin-bottom:26px}
   .fv__lead br{display:none}
+  .fv__badges{gap:8px;margin-bottom:26px}
+  .fv__price-cards{gap:14px}
+  .fv__notes{margin-bottom:26px;text-align:left}
+  .fv__notes li{padding-left:2.4em;text-indent:-2.4em} /* SPは折り返すのでぶら下げに戻す */
+  .fv__btns{gap:14px}
   .plans-common{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;column-gap:22px;row-gap:6px}
   .steps::before{display:none}
   .sl-price .sl-price__num{font-size:44px}
