@@ -31,7 +31,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* ---- 共通レイアウト ---- */
 .wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
-.sec{padding:104px 0 112px}
+.sec{padding:72px 0 78px} /* 2026-08-31 圧縮（旧:104px 0 112px） */
 .sec--blue{background:var(--base-2)}
 .sec--gray{background:var(--gray-bg)} /* 【原則不使用】本番のセクション背景は白⇄薄青⇄濃青。グレーは小部品のみ */
 .sec__eyebrow{
@@ -41,7 +41,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   padding:10px 24px;border-radius:5rem;
   text-align:center;line-height:1.5;
 }
-.sec__lead{margin:0 auto 52px;font-size:17px;max-width:800px;text-align:center;text-wrap:pretty}
+.sec__lead{margin:0 auto 36px; /* 2026-08-31 圧縮（旧:52px） */font-size:17px;max-width:800px;text-align:center;text-wrap:pretty}
 
 /* ---- ヘッダー（本番：白ナビ・お問い合わせのみ青ボタン化） ---- */
 .head{background:#fff;border-bottom:1px solid var(--line)}
@@ -61,49 +61,59 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .crumb__list a{color:var(--note-gray);text-decoration:none;display:inline-block;padding:2px 0}
 .crumb__list a:hover{color:var(--main);text-decoration:underline}
 
-/* ---- S1 FV（本番slim-bb準拠：薄青＋斜めストライプ装飾／全要素センタリング・図版なし） ---- */
-/* 本番 #bb_promo の作りをそのまま踏襲：バッジ → 大見出し → リード文。左右2カラムにしない */
-.fv{
-  position:relative;overflow:hidden;text-align:center;
-  background-color:var(--base-2);
-  background-image:url(img/deco_stripe.png);
-  background-size:20vw;background-position:right bottom -50px;background-repeat:no-repeat;
-  padding:100px 0 108px;
-}
-.fv::before{ /* 本番と同じく左上にも同じ装飾を反転配置 */
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:url(img/deco_stripe.png);
-  background-size:20vw;background-position:left top -50px;background-repeat:no-repeat;
-}
-.fv__inner{position:relative;z-index:1}
-.fv__eyebrow{
-  display:table;margin:0 auto 30px;
-  background:var(--main);color:#fff;
-  font-size:18px;font-weight:700;letter-spacing:.04em;line-height:1.6;
-  padding:8px 34px;border-radius:5rem;
+/* ---- S1 FV（本番「法人のお客様へ」準拠：白地・左寄せ大見出し＋--base-2の角丸パネル） ---- */
+/* 出所: 90_KNOWLEDGE/20260831_法人下層ページの文法.md
+   本LPは法人セクションの下層。個人向けスリムBBの「中央ピル→中央大見出し→中央リード＋斜めストライプ」は
+   あえて使わない（2026-08-31 Toku指摘「スリムBBに寄せすぎ」への対応）。
+   数値カードの作り（色ヘッダー帯＋赤い大きな数字）はスリム光クロスのFVから採った。 */
+.fv{background:var(--base-1);padding:60px 0 72px}
+.fv__kicker{
+  display:inline-block;margin:0 0 16px;padding-left:12px;
+  border-left:4px solid var(--main);
+  color:var(--main);font-size:14.5px;font-weight:700;letter-spacing:.06em;line-height:1.5;
 }
 .fv__title{
-  font-size:clamp(34px,5vw,62px);line-height:1.4;letter-spacing:.04em;
-  color:var(--text);font-weight:900;margin:0 0 30px;text-wrap:balance;
+  font-size:clamp(28px,3.9vw,52px);line-height:1.3;letter-spacing:.02em;
+  color:var(--text);font-weight:900;margin:0 0 20px;text-wrap:balance;
 }
-.fv__title .u{ /* 黄マーカー＝ブランドアクセント */
-  /* line-height:1 で箱を文字の高さに合わせる。行間ぶんズレて文字の下に落ちるのを防ぐ */
+.fv__title .u{ /* 黄マーカー。line-height:1 で行間ぶんズレるのを防ぎ、文字に重ねる */
   display:inline-block;line-height:1;padding:0 .04em;
   background:linear-gradient(transparent 62%,var(--accent) 62%);
 }
-.fv__lead{margin:0 0 40px;font-size:17px;line-height:2;text-wrap:pretty}
-.fv__badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 0 46px;padding:0;list-style:none}
-.fv__badges .sl-badge{font-size:15.5px;padding:9px 22px} /* センタリング構成では小さく見えるので上げる */
-.fv__price-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:800px;margin:0 auto 6px}
-.fv__price-card{
-  background:#fff;border-radius:var(--radius-card);box-shadow:var(--shadow-card);
-  padding:22px 28px 20px;flex:0 1 340px;text-align:center;
+.fv__lead{margin:0 0 30px;font-size:17px;max-width:52em;text-wrap:pretty}
+
+/* 要点パネル（法人ページ .gb-container-80c60152 相当：--base-2／角丸10px） */
+.fv__panel{background:var(--base-2);border-radius:10px;padding:30px 36px}
+.fv__panel-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.fv__specs{display:flex;gap:14px;flex-wrap:wrap;flex:1}
+.fv__spec{ /* 数値カード（スリム光クロスのスペックカード文法） */
+  background:var(--base-1);border:2px solid var(--main);
+  border-radius:10px 10px 4px 4px;overflow:hidden;flex:1 1 0;min-width:212px;
 }
-.fv__price-card .fv__plan-name{font-size:16.5px;font-weight:700;color:var(--main);margin:0 0 6px}
-.fv__price-card .sl-price .sl-price__num{font-size:54px}
-.fv__notes{max-width:860px;margin:0 auto 46px;text-align:center}
-.fv__notes li{padding-left:0;text-indent:0} /* センタリングのためぶら下げインデントを解除 */
-.fv__btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:center}
+.fv__spec-head{
+  margin:0;padding:5px 12px;background:var(--main);color:#fff;
+  font-size:15px;font-weight:700;text-align:center;line-height:1.5;
+}
+.fv__spec-body{padding:10px 16px 12px;text-align:center}
+.fv__spec-body .sl-price__num{font-size:46px}
+.fv__acts{
+  margin-left:auto;align-self:stretch;
+  display:flex;flex-direction:column;justify-content:center;gap:10px;
+  padding-left:32px;
+  border-left:1px solid var(--line);
+  border-left:1px solid color-mix(in srgb,var(--main) 20%,transparent);
+}
+.fv__acts .sl-btn{min-width:280px}
+.fv__panel-foot{
+  margin-top:20px;padding-top:18px;
+  border-top:1px solid var(--line);
+  border-top:1px solid color-mix(in srgb,var(--main) 20%,transparent);
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.fv__badges{display:flex;gap:10px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.fv__badges .sl-badge{border-width:1px;font-size:13.5px;padding:5px 14px}
+/* パネル(--base-2)の上では青文字のコントラストが4.41で基準4.5を割るため、白地は外さない */
+.fv__note{margin:0;font-size:12.5px;color:var(--note-gray);line-height:1.7;flex:1;min-width:300px}
 
 /* ---- アイコン（円の中にSVGを載せる） ---- */
 .case__icon img,.term__icon img{width:100%;height:100%;display:block}
@@ -200,7 +210,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .pricetable tbody tr:last-child th,.pricetable tbody tr:last-child td{border-bottom:0}
 .pricetable__badge{
   display:inline-block;margin-left:10px;vertical-align:middle;
-  background:var(--price-red);color:#fff;font-size:13px;font-weight:700;
+  background:var(--price-red-deep);color:#fff;font-size:13px;font-weight:700; /* 13pxの白抜きは--price-redだと4.11で不足 */
   border-radius:5rem;padding:4px 14px;white-space:nowrap;
 }
 .pricetable__row--main td{background:#fff}
@@ -241,16 +251,16 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   box-shadow:0 0 0 9px var(--base-2);
 }
 .step__label{
-  display:block;color:var(--main);font-family:var(--font-num);
+  display:block;color:var(--cta-band-bg);font-family:var(--font-num); /* --mainだと薄青地で4.41（基準4.5割れ） */
   font-size:15px;font-weight:600;letter-spacing:.12em;margin:0 0 4px;
 }
 .step__title{font-size:26px;font-weight:700;color:var(--text);margin:0 0 10px;line-height:1.5}
 .step__body{margin:0;font-size:16px;line-height:1.9;max-width:640px}
 
 /* ---- S8 FAQ（スリム光クロス準拠：グレー太帯・大Q・右＋丸・余白大） ---- */
-.sec--faq{padding:104px 0 112px}
-.sec--faq .sl-h2{margin-bottom:48px}
-.sec .sl-h2{margin-bottom:40px}
+.sec--faq{padding:72px 0 78px} /* 同上 */
+.sec--faq .sl-h2{margin-bottom:34px} /* 2026-08-31 圧縮（旧:48px） */
+.sec .sl-h2{margin-bottom:28px} /* 2026-08-31 圧縮（旧:40px） */
 .faq details{background:transparent;margin-bottom:15px}
 .faq summary{
   cursor:pointer;list-style:none;
@@ -300,7 +310,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .sl-tel--on-blue .sl-tel__sub{font-size:17px}
 
 /* ---- お問い合わせセクション（本番CTA帯準拠：#0069c2＋3パネル） ---- */
-.contact{background:var(--cta-band-bg);color:#fff;padding:96px 0}
+.contact{background:var(--cta-band-bg);color:#fff;padding:70px 0} /* 2026-08-31 圧縮（旧:96px） */
 .contact__grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
 .contact__title{font-size:44px;font-weight:700;color:#fff;margin:0 0 14px;line-height:1.3}
 .contact__lead{margin:0 0 30px;font-size:17px;opacity:.95;line-height:1.9}
@@ -369,28 +379,40 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     transform:translateX(-50%) rotate(135deg);
   }
   .sl-btn{min-width:0;width:100%;font-size:16px;padding:14px 40px 14px 20px}
-  .fv__btns{flex-direction:column;align-items:stretch}
-  .fv__btns .sl-tel{width:100%}
   .head__cta .sl-btn--sm{display:none}
   .head__tel .head__tel-sub{display:none}
   .head__tel .head__tel-num{font-size:17px;white-space:nowrap}
   .head__logo img{height:32px}
   .head__logo .head__logo-sub{display:none} /* SPは幅が足りず3行に折れて崩れるため非表示 */
-  .fv{padding:56px 0 64px;background-size:150px;background-position:right -30px bottom -30px}
-  .fv::before{background-size:150px;background-position:left -30px top -30px}
-  .fv__eyebrow{font-size:14px;padding:7px 20px;margin-bottom:18px;line-height:1.5}
-  .fv__title{margin-bottom:20px}
-  .fv__lead{font-size:15.5px;line-height:1.9;margin-bottom:26px}
-  .fv__lead br{display:none}
-  .fv__badges{gap:8px;margin-bottom:26px}
-  .fv__price-cards{gap:14px}
-  .fv__notes{margin-bottom:26px;text-align:left}
-  .fv__notes li{padding-left:2.4em;text-indent:-2.4em} /* SPは折り返すのでぶら下げに戻す */
-  .fv__btns{gap:14px}
+  .fv{padding:36px 0 44px}
+  .fv__kicker{font-size:13px;margin-bottom:12px;padding-left:10px;border-left-width:3px}
+  .fv__title{margin-bottom:14px;line-height:1.35}
+  .fv__lead{font-size:15.5px;margin-bottom:22px}
+  .fv__panel{padding:18px 16px 20px;border-radius:8px}
+  .fv__panel-row{gap:18px}
+  .fv__specs{gap:8px;width:100%;flex-direction:column}
+  /* 「12,000」は6桁あり375px幅の2列に収まらないため、SPは1列に積む（クロスの2列は「10」「5,500」だから成立している） */
+  .fv__spec{flex:1 1 auto;min-width:0;width:100%}
+  .fv__spec-head{font-size:13.5px;padding:4px 8px}
+  .fv__spec-body{padding:6px 10px 8px}
+  /* 後段の .sl-price .sl-price__num{48px} に負けるため .fv を足して詳細度を上げる */
+  .fv .fv__spec-body .sl-price__num{font-size:34px}
+  .fv .fv__spec-body .sl-price__prefix{font-size:14px}
+  .fv .fv__spec-body .sl-price__yen{font-size:17px}
+  .fv__acts{
+    margin-left:0;width:100%;align-self:auto;gap:12px;
+    padding-left:0;border-left:0;padding-top:16px;border-top:1px solid var(--line);
+  }
+  .fv__acts .sl-btn{min-width:0;width:100%}
+  .fv__acts .sl-tel{width:100%;padding:8px 16px}
+  .fv__acts .sl-tel a{white-space:nowrap}
+  .fv__panel-foot{margin-top:16px;padding-top:14px;gap:12px}
+  .fv__badges{gap:6px}
+  .fv__badges .sl-badge{font-size:12.5px;padding:4px 10px}
+  .fv__note{font-size:11.5px;min-width:0}
   .plans-common{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;column-gap:22px;row-gap:6px}
   .steps::before{display:none}
   .sl-price .sl-price__num{font-size:44px}
-  .fv__price-card .sl-price .sl-price__num{font-size:38px}
   .sl-cta-band .sl-cta-band__actions{flex-direction:column;align-items:stretch}
   .sl-cta-band .sl-btn{width:100%}
   .sec--faq{padding:60px 0 64px}
@@ -402,7 +424,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .sl-tel--on-blue .sl-tel__icon{width:26px;height:26px}
   .sl-cta-band .sl-cta-band__title{font-size:30px}
   .sl-price .sl-price__num{font-size:48px}
-  .fv__price-card .sl-price .sl-price__num{font-size:42px}
   .plan__name{font-size:23px}
   .sec__lead,.other p{font-size:15.5px}
   .sl-tel .sl-tel__sub,.sl-tel--on-blue .sl-tel__sub{font-size:13.5px}

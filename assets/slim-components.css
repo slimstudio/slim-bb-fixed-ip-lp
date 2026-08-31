@@ -25,6 +25,9 @@
 .sl-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 .sl-btn--red{background-color:var(--price-red);border-color:var(--price-red)}
+/* 小サイズ(15px)は白抜きが4.11で基準4.5を割るため、濃い方の赤にする（2026-08-31実測） */
+.sl-btn--sm.sl-btn--red{background-color:var(--price-red-deep);border-color:var(--price-red-deep)}
+.sl-btn--sm.sl-btn--red:hover{color:var(--price-red-deep)}
 .sl-btn--red:hover{background-color:#fff;color:var(--price-red)}
 .sl-btn--ghost{background-color:#fff;color:var(--main)}
 .sl-btn--ghost:hover{background-color:var(--main);color:#fff}
@@ -35,7 +38,7 @@
 /* ---- 大見出し（本番 .h_large_b 準拠：中央＋下中央60×6pxの青バー） ---- */
 .sl-h2{
   color:var(--text);font-size:54px;font-weight:700;line-height:1.35;letter-spacing:.05em;
-  text-align:center;position:relative;margin:0 0 30px;padding-bottom:26px;
+  text-align:center;position:relative;margin:0 0 30px;padding-bottom:20px; /* 2026-08-31 圧縮（旧:26px） */
   text-wrap:balance;scroll-margin-top:80px;
 }
 .sl-h2::before{
@@ -115,7 +118,7 @@
 .sl-notes li{padding-left:2.4em;text-indent:-2.4em;margin-bottom:2px}
 
 /* ---- CTA帯（本番文法：全面青＋赤申込＋白抜き電話。反復使用する） ---- */
-.sl-cta-band{background:var(--main);color:#fff;padding:92px 0;text-align:center}
+.sl-cta-band{background:var(--main);color:#fff;padding:68px 0;text-align:center} /* 2026-08-31 圧縮（旧:92px） */
 .sl-cta-band .sl-cta-band__title{
   font-size:54px;font-weight:700;line-height:1.4;margin:0 0 12px;
   color:#fff;text-wrap:balance;
