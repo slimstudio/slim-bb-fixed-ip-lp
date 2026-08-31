@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>自社サーバーや自社サイトを公開する</title>
+  <defs>
+    <clipPath id="case03-v02-globe">
+      <circle cx="96" cy="92" r="72"/>
+    </clipPath>
+  </defs>
+  <g fill="#316ea9" clip-path="url(#case03-v02-globe)">
+    <path fill-rule="evenodd" d="M96 20A72 72 0 1 1 96 164A72 72 0 1 1 96 20Z M96 36A56 56 0 1 1 96 148A56 56 0 1 1 96 36Z"/>
+    <path fill-rule="evenodd" d="M96 20A36 72 0 1 1 96 164A36 72 0 1 1 96 20Z M96 36A20 56 0 1 1 96 148A20 56 0 1 1 96 36Z"/>
+    <rect x="24" y="84" width="144" height="16" rx="8"/>
+  </g>
+  <rect x="100" y="140" width="80" height="40" rx="12" fill="#9bd8f7"/>
+  <rect x="116" y="154" width="48" height="12" rx="6" fill="#316ea9"/>
+</svg>

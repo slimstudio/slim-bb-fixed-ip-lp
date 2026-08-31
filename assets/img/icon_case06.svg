@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>リモートデスクトップで社内PCを操作する</title>
+  <g fill="#316ea9">
+    <rect x="88" y="134" width="24" height="36" rx="8"/>
+    <rect x="60" y="166" width="80" height="14" rx="7"/>
+    <rect x="22" y="28" width="156" height="114" rx="16"/>
+  </g>
+  <rect x="36" y="42" width="128" height="82" rx="10" fill="#9bd8f7"/>
+  <rect x="72" y="66" width="76" height="44" rx="10" fill="#316ea9"/>
+  <rect x="86" y="80" width="48" height="16" rx="6" fill="#ffffff"/>
+</svg>

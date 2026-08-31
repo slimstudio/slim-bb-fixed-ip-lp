@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760">
+  <title>接続の構成を入れ替える場合と、そのままIPv4固定IPを追加できる場合の比較</title>
+  <defs>
+    <g id="fig02-block">
+      <rect width="180" height="112" rx="10" fill="#9bd8f7"/>
+      <path d="M10 0 H170 Q180 0 180 10 V24 H0 V10 Q0 0 10 0Z" fill="#b1e0e8"/>
+      <path d="M160 24 H180 V102 Q180 112 170 112 H160 Q156 112 156 108 V28 Q156 24 160 24Z" fill="#88caed"/>
+      <rect x="16" y="9" width="56" height="8" rx="4" fill="#ffffff"/>
+    </g>
+    <path id="fig02-down-arrow" d="M-6 6 Q-6 0 0 0 Q6 0 6 6 V40 Q6 44 10 44 H20 Q25 44 22 48 L4 69 Q0 75 -4 69 L-22 48 Q-25 44 -20 44 H-10 Q-6 44 -6 40Z" fill="#316ea9"/>
+  </defs>
+
+  <g fill="#88caed">
+    <rect x="520" y="287" width="40" height="10" rx="5"/>
+    <rect x="740" y="287" width="40" height="10" rx="5"/>
+  </g>
+  <use href="#fig02-block" x="340" y="236"/>
+  <rect x="560" y="236" width="180" height="112" rx="10" fill="none" stroke="#bfd4d5" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round"/>
+  <use href="#fig02-block" x="780" y="236"/>
+
+  <use href="#fig02-block" x="460" y="48"/>
+  <use href="#fig02-block" x="660" y="48"/>
+  <use href="#fig02-down-arrow" transform="translate(610 232) rotate(180)"/>
+  <use href="#fig02-down-arrow" transform="translate(690 160)"/>
+
+  <text x="24" y="306" font-family="sans-serif" font-size="40" font-weight="700" fill="#1a1a2e">これまで</text>
+  <text x="750" y="123" text-anchor="middle" font-family="sans-serif" font-size="36" font-weight="700" fill="#1a1a2e">接続方式</text>
+
+  <rect x="24" y="385" width="952" height="2" rx="1" fill="#d9dfdd"/>
+
+  <g fill="#88caed">
+    <rect x="520" y="679" width="40" height="10" rx="5"/>
+    <rect x="740" y="679" width="40" height="10" rx="5"/>
+  </g>
+  <use href="#fig02-block" x="340" y="628"/>
+  <use href="#fig02-block" x="560" y="628"/>
+  <use href="#fig02-block" x="780" y="628"/>
+  <use href="#fig02-down-arrow" transform="translate(650 556)"/>
+  <rect x="515" y="466" width="270" height="90" rx="12" fill="#ffffff" stroke="#0074d7" stroke-width="5"/>
+
+  <text x="24" y="698" font-family="sans-serif" font-size="40" font-weight="700" fill="#1a1a2e">スリムBBなら</text>
+  <text x="650" y="525" text-anchor="middle" font-family="sans-serif" font-size="40" font-weight="700" fill="#1a1a2e">IPv4固定IP</text>
+  <text x="650" y="442" text-anchor="middle" font-family="sans-serif" font-size="40" font-weight="700" fill="#1a1a2e">そのまま ＋ 追加</text>
+</svg>

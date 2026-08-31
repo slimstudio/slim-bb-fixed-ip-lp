@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>本社と拠点をつなぐ</title>
+  <g fill="none" stroke="#316ea9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 110C44 6 156 6 156 94"/>
+    <path d="M28 94L44 110L60 94"/>
+    <path d="M140 78L156 94L172 78"/>
+  </g>
+  <g fill="#316ea9">
+    <rect x="24" y="118" width="58" height="60" rx="12"/>
+    <rect x="116" y="102" width="60" height="76" rx="12"/>
+  </g>
+  <g fill="#9bd8f7">
+    <rect x="38" y="134" width="30" height="14" rx="7"/>
+    <rect x="130" y="120" width="32" height="14" rx="7"/>
+    <rect x="130" y="148" width="32" height="14" rx="7"/>
+  </g>
+</svg>

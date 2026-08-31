@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>社外から社内システムやNASにアクセスする</title>
+  <rect x="112" y="22" width="60" height="124" rx="12" fill="#9bd8f7"/>
+  <g fill="#316ea9">
+    <rect x="126" y="44" width="32" height="14" rx="7"/>
+    <rect x="126" y="72" width="32" height="14" rx="7"/>
+    <path d="M42 98V78C42 55 60 36 82 36S122 55 122 78V98H106V78C106 64 96 52 82 52S58 64 58 78V98Z"/>
+    <rect x="28" y="90" width="108" height="88" rx="16"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="82" cy="122" r="10"/>
+    <rect x="76" y="122" width="12" height="28" rx="6"/>
+  </g>
+</svg>

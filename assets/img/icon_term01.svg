@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>初期費用の案内</title>
+  <circle cx="132" cy="52" r="30" fill="#fcae2a"/>
+  <rect x="22" y="66" width="156" height="108" rx="16" fill="#316ea9"/>
+  <rect x="122" y="100" width="56" height="40" rx="12" fill="#9bd8f7"/>
+  <circle cx="144" cy="120" r="8" fill="#316ea9"/>
+  <rect x="40" y="84" width="60" height="14" rx="7" fill="#ffffff"/>
+</svg>

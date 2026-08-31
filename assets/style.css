@@ -88,7 +88,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .fv__notes{margin-bottom:22px}
 .fv__btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 
-/* ---- 図のプレースホルダ ---- */
+/* ---- 図（Codex生成SVG） ---- */
+.fig-img{width:100%;height:auto;display:block}
+.fv .fig-img{max-width:none} /* FVは右カラム幅いっぱいに使う */
+.ba .fig-img{max-width:none}
+
+/* ---- アイコン（円の中にSVGを載せる） ---- */
+.case__icon img,.term__icon img{width:100%;height:100%;display:block}
+
+/* ---- 図のプレースホルダ（未使用になったが定義は残す） ---- */
 .fig{
   border:2px dashed var(--main);border-radius:var(--radius-card);
   background:#fff;min-height:240px;
@@ -106,10 +114,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   box-shadow:var(--shadow-soft);padding:30px 32px;
 }
 .case__icon{
-  flex:0 0 56px;width:56px;height:56px;border-radius:50%;
+  flex:0 0 64px;width:64px;height:64px;border-radius:50%;
   background:var(--base-2);color:var(--main);
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;
+  font-size:11px;font-weight:700;padding:8px;
 }
 .case__title{font-size:16.5px;font-weight:700;color:var(--text);margin:0 0 4px;line-height:1.55}
 .case__body{margin:0;font-size:13.5px;line-height:1.75;color:#333}
@@ -157,9 +165,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   box-shadow:var(--shadow-card);padding:36px 20px 30px;text-align:center;
 }
 .term__icon{
-  width:64px;height:64px;border-radius:50%;background:var(--base-2);color:var(--main);
+  width:76px;height:76px;border-radius:50%;background:var(--base-2);color:var(--main);
   margin:0 auto 16px;display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;
+  font-size:11px;font-weight:700;padding:9px;
 }
 .term__title{font-size:20px;font-weight:700;color:var(--text);margin:0 0 8px;line-height:1.5}
 .term__title b{color:var(--main)}
@@ -203,7 +211,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .plan-help__item b{color:var(--main)}
 
 /* S9の2リンク */
-.other__links{display:flex;gap:12px;flex-wrap:wrap}
+.other__links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
 /* ---- S6 ご利用条件 ---- */
 .cond{margin-inline:auto}
@@ -268,7 +276,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* ---- S9 他プラン案内（目立たせない） ---- */
 .other{
   background:var(--gray-bg);border:1px solid var(--line);border-radius:var(--radius-card);
-  padding:28px 34px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  padding:36px 34px;
+  display:flex;flex-direction:column;gap:20px;align-items:center;justify-content:center;
+  text-align:center;
 }
 .other p{margin:0;font-size:17px}
 

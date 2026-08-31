@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>対応ルーターの案内</title>
+  <g fill="none" stroke="#316ea9" stroke-width="16" stroke-linecap="round">
+    <path d="M36 44Q76 20 116 44"/>
+    <path d="M54 66Q76 50 98 66"/>
+  </g>
+  <g fill="#316ea9">
+    <rect x="34" y="82" width="16" height="40" rx="8"/>
+    <rect x="108" y="82" width="16" height="40" rx="8"/>
+    <rect x="22" y="108" width="112" height="66" rx="16"/>
+  </g>
+  <rect x="40" y="126" width="76" height="14" rx="7" fill="#ffffff"/>
+  <path d="M150 147L161 158L174 138" fill="none" stroke="#4fbfc0" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

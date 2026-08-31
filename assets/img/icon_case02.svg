@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>取引先やSaaSに指定された固定IPでアクセスする</title>
+  <rect x="24" y="24" width="110" height="152" rx="16" fill="#316ea9"/>
+  <g fill="#ffffff">
+    <rect x="42" y="52" width="74" height="14" rx="7"/>
+    <rect x="42" y="86" width="74" height="14" rx="7"/>
+    <rect x="42" y="120" width="74" height="14" rx="7"/>
+  </g>
+  <path d="M150 147L161 158L174 138" fill="none" stroke="#4fbfc0" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
