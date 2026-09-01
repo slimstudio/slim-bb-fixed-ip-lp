@@ -24,11 +24,11 @@
 .sl-btn:hover{background-color:#fff;color:var(--main)}
 .sl-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
-.sl-btn--red{background-color:var(--price-red);border-color:var(--price-red)}
-/* 小サイズ(15px)は白抜きが4.11で基準4.5を割るため、濃い方の赤にする（2026-08-31実測） */
-.sl-btn--sm.sl-btn--red{background-color:var(--price-red-deep);border-color:var(--price-red-deep)}
-.sl-btn--sm.sl-btn--red:hover{color:var(--price-red-deep)}
-.sl-btn--red:hover{background-color:#fff;color:var(--price-red)}
+/* 赤CTAは --price-red だと白抜きが4.11で基準4.5割れ（SPで16pxに下がる／ヘッダー小ボタンは15px）。
+   サイズで分岐させず、ボタンの赤は一律で濃い方を使う。価格の数字は大きいので --price-red のまま。
+   var()が解決できない環境で透明にならないよう二段フォールバックを付けている（2026-08-31実測） */
+.sl-btn--red{background-color:var(--price-red-deep,var(--price-red,#e8384f));border-color:var(--price-red-deep,var(--price-red,#e8384f))}
+.sl-btn--red:hover{background-color:#fff;color:var(--price-red-deep,var(--price-red,#e8384f))}
 .sl-btn--ghost{background-color:#fff;color:var(--main)}
 .sl-btn--ghost:hover{background-color:var(--main);color:#fff}
 .sl-btn--on-blue{background-color:#fff;color:var(--main);border-color:#fff}
