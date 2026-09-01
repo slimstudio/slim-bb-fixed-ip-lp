@@ -66,7 +66,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
    本LPは法人セクションの下層。個人向けスリムBBの「中央ピル→中央大見出し→中央リード＋斜めストライプ」は
    あえて使わない（2026-08-31 Toku指摘「スリムBBに寄せすぎ」への対応）。
    数値カードの作り（色ヘッダー帯＋赤い大きな数字）はスリム光クロスのFVから採った。 */
-.fv{position:relative;overflow:hidden;background:var(--base-1);padding:60px 0 72px}
+.fv{position:relative;overflow:hidden;background:var(--base-1);padding:60px 0 72px;text-align:center}
 /* 背景①：直交グリッド。スリムBBの背景は「薄青ベタ＋斜めストライプ」なので、
    白地＋直交という別方向にして差別化する。固定IP＝ネットワークの話題にも合う質感。 */
 .fv::before{
@@ -79,7 +79,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   -webkit-mask-image:linear-gradient(#000 0 52%,transparent 92%);
           mask-image:linear-gradient(#000 0 52%,transparent 92%);
 }
-/* 背景②：右上の薄青のにじみ。左寄せ構成で空く右上を埋める */
+/* 背景②：右上の薄青のにじみ */
 .fv::after{
   content:"";position:absolute;top:-180px;right:-160px;width:680px;height:680px;
   z-index:0;pointer-events:none;border-radius:50%;
@@ -87,9 +87,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 }
 .fv > .wrap{position:relative;z-index:1}
 .fv__kicker{
-  display:inline-block;margin:0 0 16px;padding-left:12px;
-  border-left:4px solid var(--main);
-  color:var(--main);font-size:14.5px;font-weight:700;letter-spacing:.06em;line-height:1.5;
+  display:inline-block;margin:0 0 18px;padding:0 2px 7px;
+  border-bottom:2px solid var(--main); /* 青ピルはスリムBBの型なので使わない */
+  color:var(--main);font-size:14.5px;font-weight:700;letter-spacing:.08em;line-height:1.5;
 }
 .fv__title{
   font-size:clamp(28px,3.9vw,52px);line-height:1.3;letter-spacing:.02em;
@@ -99,15 +99,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   display:inline-block;line-height:1;padding:0 .04em;
   background:linear-gradient(transparent 62%,var(--accent) 62%);
 }
-.fv__lead{margin:0 0 30px;font-size:17px;max-width:52em;text-wrap:pretty}
+.fv__lead{margin:0 auto 30px;font-size:17px;max-width:880px;text-wrap:pretty}
 
 /* 要点パネル（法人ページ .gb-container-80c60152 相当：--base-2／角丸10px） */
 .fv__panel{background:var(--base-2);border-radius:10px;padding:30px 36px}
-.fv__panel-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.fv__specs{display:flex;gap:14px;flex-wrap:wrap;flex:1}
+.fv__panel-row{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+.fv__specs{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .fv__spec{ /* 数値カード（スリム光クロスのスペックカード文法） */
   background:var(--base-1);border:2px solid var(--main);
-  border-radius:10px 10px 4px 4px;overflow:hidden;flex:1 1 0;min-width:212px;
+  border-radius:10px 10px 4px 4px;overflow:hidden;flex:0 0 256px;
 }
 .fv__spec-head{
   margin:0;padding:5px 12px;background:var(--main);color:#fff;
@@ -116,7 +116,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .fv__spec-body{padding:10px 16px 12px;text-align:center}
 .fv__spec-body .sl-price__num{font-size:46px}
 .fv__acts{
-  margin-left:auto;align-self:stretch;
+  align-self:stretch;
   display:flex;flex-direction:column;justify-content:center;gap:10px;
   padding-left:32px;
   border-left:1px solid var(--line);
@@ -127,12 +127,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   margin-top:20px;padding-top:18px;
   border-top:1px solid var(--line);
   border-top:1px solid color-mix(in srgb,var(--main) 20%,transparent);
-  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
 }
-.fv__badges{display:flex;gap:10px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.fv__badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
 .fv__badges .sl-badge{border-width:1px;font-size:13.5px;padding:5px 14px}
 /* パネル(--base-2)の上では青文字のコントラストが4.41で基準4.5を割るため、白地は外さない */
-.fv__note{margin:0;font-size:12.5px;color:var(--note-gray);line-height:1.7;flex:1;min-width:300px}
+.fv__note{margin:0;font-size:12.5px;color:var(--note-gray);line-height:1.7;max-width:900px}
 
 /* ---- アイコン（円の中にSVGを載せる） ---- */
 .case__icon img,.term__icon img{width:100%;height:100%;display:block}
@@ -407,7 +407,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .fv{padding:36px 0 44px}
   .fv::before{background-size:22px 22px,22px 22px}
   .fv::after{top:-120px;right:-110px;width:360px;height:360px}
-  .fv__kicker{font-size:13px;margin-bottom:12px;padding-left:10px;border-left-width:3px}
+  .fv__kicker{font-size:13px;margin-bottom:14px;padding-bottom:6px}
   .fv__title{margin-bottom:14px;line-height:1.35}
   .fv__lead{font-size:15.5px;margin-bottom:22px}
   .fv__panel{padding:18px 16px 20px;border-radius:8px}
@@ -428,10 +428,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .fv__acts .sl-btn{min-width:0;width:100%}
   .fv__acts .sl-tel{width:100%;padding:8px 16px}
   .fv__acts .sl-tel a{white-space:nowrap}
-  .fv__panel-foot{margin-top:16px;padding-top:14px;gap:12px}
+  .fv__panel-foot{margin-top:16px;padding-top:14px;gap:10px}
   .fv__badges{gap:6px}
   .fv__badges .sl-badge{font-size:12.5px;padding:4px 10px}
-  .fv__note{font-size:11.5px;min-width:0}
+  .fv__note{font-size:11.5px;text-align:left}
   .plans-common{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;column-gap:22px;row-gap:6px}
   .steps::before{display:none}
   .sl-price .sl-price__num{font-size:44px}
